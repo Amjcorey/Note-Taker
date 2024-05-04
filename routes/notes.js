@@ -15,7 +15,7 @@ noteRouter.get("/", (req, res) => {
 
 noteRouter.post("/", (req, res) => {
     console.log(req.body);
-    const { title, text } = req.body;
+    let { title, text } = req.body;
 
     if (req.body) {
         const newNote = {
