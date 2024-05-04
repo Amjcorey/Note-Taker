@@ -42,7 +42,7 @@ noteRouter.post("/", (req, res) => {
   }
 });
 
-// use id to recall note and put it in the text entry field
+// Use id to recall note and put in a text entry field
 
 noteRouter.delete("/:id", (req, res) => {
   try {
