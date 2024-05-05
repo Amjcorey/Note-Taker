@@ -20,24 +20,24 @@ app.use('/api', apiRoutes);
 
 
 // GET route for homepage  ->  sends back the index.html page
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/index.html"));
-});
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+})
 
 // GET route for notes page  ->  sends back the notes.html page
-app.get("/note", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/note.html"));
-});
+app.get('/note', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'note.html'));
+})
 
 // GET route for notes api  ->  reads the db.json file and sends back the parsed JSON data
-app.get("/api/note", (req, res) => {
-  res.sendFile(path.join(__dirname, "db/db.json"));
+app.get('/api/note', (req, res) => {
+  res.sendFile(path.join(__dirname, 'db', 'db.json'));
 });
 
 // GET route for all other pages
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+})
 
 // Reads the newly added notes from the request body and then adds them to the db.json file
 const readThenAppendToJson = (content, file) => {
