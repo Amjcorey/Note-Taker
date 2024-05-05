@@ -1,9 +1,9 @@
-// Import express, path, and file system (fs)
-const express = require("express");
-const fs = require("fs");
-const path = require("path");
-// Helper method for generating unique ids
-const uniqid = require("uniqid");
+// Import 
+const express = require('express');
+const path = require('path');
+const { clog } = require('./middleware/clog.js');
+const apiRoutes = require('./routes');
+
 
 // Port
 const port = process.env.PORT ||3001;
