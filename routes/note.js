@@ -24,11 +24,14 @@ noteRouter.post("/", (req, res) => {
     };
 
     try {
-      const data = fs.readFileSync(path.join(__dirname, "./db.json"), "utf8");
+      const data = fs.readFileSync(
+        path.join(__dirname, "../db/db.json"),
+        "utf8"
+      );
       const notes = JSON.parse(data);
       notes.push(newNote);
       fs.writeFileSync(
-        path.join(__dirname, "./db.json"),
+        path.join(__dirname, "../db/db.json"),
         JSON.stringify(notes)
       );
       // res.json(notes);
@@ -42,15 +45,15 @@ noteRouter.post("/", (req, res) => {
   }
 });
 
-// use id to recall note and put it in the text entry field
+// Use id to recall note and put it in the text entry field
 
 noteRouter.delete("/:id", (req, res) => {
   try {
-    const data = fs.readFileSync(path.join(__dirname, "./db/db.json"), "utf8");
+    const data = fs.readFileSync(path.join(__dirname, "../db/db.json"), "utf8");
     const notes = JSON.parse(data);
     const newNotes = notes.filter((note) => note.id != req.params.id);
     fs.writeFileSync(
-      path.join(__dirname, "./db/db.json"),
+      path.join(__dirname, "../db/db.json"),
       JSON.stringify(newNotes)
     );
     res.json(newNotes);
@@ -60,4 +63,5 @@ noteRouter.delete("/:id", (req, res) => {
   }
 });
 
+// Export
 module.exports = noteRouter;
