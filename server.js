@@ -1,7 +1,7 @@
 // Import
 const express = require("express");
 const path = require("path");
-const { clog } = require("middleware/clog.js");
+const { clog } = require("./middleware/clog");
 const apiRoutes = require("./routes");
 
 // Port
@@ -23,12 +23,12 @@ app.get("/", (req, res) => {
 });
 
 // GET route for notes page  ->  sends back the notes.html page
-app.get("/note", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "note.html"));
+app.get("/notes", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "notes.html"));
 });
 
 // GET route for notes api  ->  reads the db.json file and sends back the parsed JSON data
-app.get("/api/note", (req, res) => {
+app.get("/api/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "db", "db.json"));
 });
 
