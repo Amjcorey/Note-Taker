@@ -34,8 +34,7 @@ noteRouter.post("/", (req, res) => {
         path.join(__dirname, "../db/db.json"),
         JSON.stringify(notes)
       );
-      // res.json(notes);
-      console.log(notes);
+      res.json(notes);
     } catch (err) {
       console.error(err);
       res.status(500).send("Server Error");
@@ -44,7 +43,6 @@ noteRouter.post("/", (req, res) => {
     res.status(400).send("Please include a title and text for your note.");
   }
 });
-
 // Use id to recall note and put it in the text entry field
 
 noteRouter.delete("/:id", (req, res) => {
